@@ -114,166 +114,110 @@ Copy the `config_example.json` file to `config.json` then overview each options 
 
 Explanation for each field:
 ```javascript
-/* Used for storage in redis so multiple coins can share the same redis instance. */
-"coin": "electroneum",
-
-/* Used for front-end display */
-"symbol": "ETN",
-
-"logging": {
-
-    "files": {
-
-        /* Specifies the level of log output verbosity. This level and anything
-           more severe will be logged. Options are: info, warn, or error. */
-        "level": "info",
-
-        /* Directory where to write log files. */
-        "directory": "logs",
-
-        /* How often (in seconds) to append/flush data to the log files. */
-        "flushInterval": 5
-    },
-
-    "console": {
-        "level": "info",
-        /* Gives console output useful colors. If you direct that output to a log file
-           then disable this feature to avoid nasty characters in the file. */
-        "colors": true
-    }
-},
-
-/* Modular Pool Server */
-"poolServer": {
-    "enabled": true,
-
-    /* Set to "auto" by default which will spawn one process/fork/worker for each CPU
-       core in your system. Each of these workers will run a separate instance of your
-       pool(s), and the kernel will load balance miners using these forks. Optionally,
-       the 'forks' field can be a number for how many forks will be spawned. */
-    "clusterForks": "auto",
-
-    /* Address where block rewards go, and miner payments come from. */
-    "poolAddress": "WALLETADDRESSHERE"
-
-    /* Poll RPC daemons for new blocks every this many milliseconds. */
-    "blockRefreshInterval": 1000,
-
-    /* How many seconds until we consider a miner disconnected. */
-    "minerTimeout": 900,
-
-    "ports": [
-        {
-            "port": 3333, //Port for mining apps to connect to
-            "difficulty": 100, //Initial difficulty miners are set to
-            "desc": "Low end hardware" //Description of port
+{
+    "coin": "electroneum",
+    "symbol": "ETN",
+    "logging": {
+        "files": {
+            "level": "info",
+            "directory": "logs",
+            "flushInterval": 5
         },
-        {
-            "port": 5555,
-            "difficulty": 2000,
-            "desc": "Mid range hardware"
-        },
-        {
-            "port": 7777,
-            "difficulty": 10000,
-            "desc": "High end hardware"
+
+        "console": {
+            "level": "info",
+            "colors": true
         }
-    ],
-
-    /* Variable difficulty is a feature that will automatically adjust difficulty for
-       individual miners based on their hashrate in order to lower networking and CPU
-       overhead. */
-    "varDiff": {
-        "minDiff": 2, //Minimum difficulty
-        "maxDiff": 100000,
-        "targetTime": 100, //Try to get 1 share per this many seconds
-        "retargetTime": 30, //Check to see if we should retarget every this many seconds
-        "variancePercent": 30, //Allow time to very this % from target without retargeting
-        "maxJump": 100 //Limit diff percent increase/decrease in a single retargetting
     },
-
-    /* Feature to trust share difficulties from miners which can
-       significantly reduce CPU load. */
-    "shareTrust": {
+    "poolServer": {
         "enabled": true,
-        "min": 10, //Minimum percent probability for share hashing
-        "stepDown": 3, //Increase trust probability % this much with each valid share
-        "threshold": 10, //Amount of valid shares required before trusting begins
-        "penalty": 30 //Upon breaking trust require this many valid share before trusting
+        "clusterForks": "auto",
+        "poolAddress": "WALLETADDRESSHERE",
+        "blockRefreshInterval": 1000,
+        "minerTimeout": 900,
+        "ports": [
+            {
+                "port": 3333,
+                "difficulty": 100,
+                "desc": "Low end hardware"
+            },
+            {
+                "port": 5555,
+                "difficulty": 2000,
+                "desc": "Mid range hardware"
+            },
+            {
+                "port": 7777,
+                "difficulty": 10000,
+                "desc": "High end hardware"
+            }
+        ],
+        "varDiff": {
+            "minDiff": 2,
+            "maxDiff": 100000,
+            "targetTime": 100,
+            "retargetTime": 30,
+            "variancePercent": 30,
+            "maxJump": 100
+        },
+        "shareTrust": {
+            "enabled": true,
+            "min": 10,
+            "stepDown": 3,
+            "threshold": 10,
+            "penalty": 30
+        },
+        "banning": {
+            "enabled": true,
+            "time": 600,
+            "invalidPercent": 25,
+            "checkThreshold": 30
+        },
+        "slushMining": {
+            "enabled": false,
+            "weight": 300,
+            "lastBlockCheckRate": 1
+        }
     },
-
-    /* If under low-diff share attack we can ban their IP to reduce system/network load. */
-    "banning": {
+    "payments": {
         "enabled": true,
-        "time": 600, //How many seconds to ban worker for
-        "invalidPercent": 25, //What percent of invalid shares triggers ban
-        "checkThreshold": 30 //Perform check when this many shares have been submitted
+        "interval": 600,
+        "maxAddresses": 10,
+        "mixin": 0,
+        "transferFee": 1,
+        "minPayment": 10000,
+        "denomination": 100
     },
-    /* [Warning: several reports of this feature being broken. Proposed fix needs to be tested.] 
-        Slush Mining is a reward calculation technique which disincentivizes pool hopping and rewards 
-        'loyal' miners by valuing younger shares higher than older shares. Remember adjusting the weight!
-        More about it here: https://mining.bitcoin.cz/help/#!/manual/rewards */
-    "slushMining": {
-        "enabled": false, //Enables slush mining. Recommended for pools catering to professional miners
-        "weight": 300, //Defines how fast the score assigned to a share declines in time. The value should roughly be equivalent to the average round duration in seconds divided by 8. When deviating by too much numbers may get too high for JS.
-        "lastBlockCheckRate": 1 //How often the pool checks the timestamp of the last block. Lower numbers increase load but raise precision of the share value
+    "blockUnlocker": {
+        "enabled": true,
+        "interval": 30,
+        "depth": 20,
+        "poolFee": 1.8,
+        "devDonation": 0.1,
+        "coreDevDonation": 0.1
+    },
+    "api": {
+        "enabled": true,
+        "hashrateWindow": 600,
+        "updateInterval": 3,
+        "port": 8117,
+        "blocks": 30,
+        "payments": 30,
+        "password": "test"
+    },
+    "daemon": {
+        "host": "127.0.0.1",
+        "port": 18081
+    },
+    "wallet": {
+        "host": "127.0.0.1",
+        "port": 8082
+    },
+    "redis": {
+        "host": "127.0.0.1",
+        "port": 6379,
+        "auth": null
     }
-},
-
-/* Module that sends payments to miners according to their submitted shares. */
-"payments": {
-    "enabled": true,
-    "interval": 600, //how often to run in seconds
-    "maxAddresses": 10, //split up payments if sending to more than this many addresses
-    "mixin": 0, //number of transactions yours is indistinguishable from
-    "transferFee": 1, //fee to pay for each transaction
-    "minPayment": 10000, //miner balance required before sending payment
-    "denomination": 100 //truncate to this precision and store remainder
-},
-
-/* Module that monitors the submitted block maturities and manages rounds. Confirmed
-   blocks mark the end of a round where workers' balances are increased in proportion
-   to their shares. */
-"blockUnlocker": {
-    "enabled": true,
-    "interval": 30, //how often to check block statuses in seconds
-
-    /* Block depth required for a block to unlocked/mature. Found in daemon source as
-       the variable CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW */
-    "depth": 20,
-    "poolFee": 1.8, //1.8% pool fee (2% total fee total including donations)
-    "devDonation": 0.1, //0.1% donation to send to pool dev
-    "coreDevDonation": 0.1 //0.1% donation to send to core devs
-},
-
-/* AJAX API used for front-end website. */
-"api": {
-    "enabled": true,
-    "hashrateWindow": 600, //how many second worth of shares used to estimate hash rate
-    "updateInterval": 3, //gather stats and broadcast every this many seconds
-    "port": 8117,
-    "blocks": 30, //amount of blocks to send at a time
-    "payments": 30, //amount of payments to send at a time
-    "password": "test" //password required for admin stats
-},
-
-/* Coin daemon connection details. */
-"daemon": {
-    "host": "127.0.0.1",
-    "port": 18081
-},
-
-/* Wallet daemon connection details. */
-"wallet": {
-    "host": "127.0.0.1",
-    "port": 8082
-},
-
-/* Redis connection into. */
-"redis": {
-    "host": "127.0.0.1",
-    "port": 6379,
-    "auth": null //If set, client will run redis auth command on connect. Use for remote db
 }
 ```
 
