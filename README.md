@@ -68,19 +68,16 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 
 #### Pools Using This Software
 
-* http://xminingpool.com
-* http://xmr.poolto.be
-* https://moneropool.com
-* http://monero.crypto-pool.fr
-* https://minexmr.com
-
+* https://eupool.electroneum.com
+* https://eupool.electroneum.com
+* https://uspool.electroneum.com
 
 Usage
 ===
 
 #### Requirements
 * Coin daemon(s) (find the coin's repo and build latest version from source)
-* [Node.js](http://nodejs.org/) v0.10+ ([follow these installation instructions](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager))
+* [Node.js](http://nodejs.org/) v0.10.48 ([follow these installation instructions](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager))
 * [Redis](http://redis.io/) key-value store v2.6+ ([follow these instructions](http://redis.io/topics/quickstart))
 * libssl required for the node-multi-hashing module
   * For Ubuntu: `sudo apt-get install libssl-dev`
@@ -123,10 +120,10 @@ Copy the `config_example.json` file to `config.json` then overview each options 
 Explanation for each field:
 ```javascript
 /* Used for storage in redis so multiple coins can share the same redis instance. */
-"coin": "monero",
+"coin": "electroneum",
 
 /* Used for front-end display */
-"symbol": "MRO",
+"symbol": "ETN",
 
 "logging": {
 
@@ -162,7 +159,7 @@ Explanation for each field:
     "clusterForks": "auto",
 
     /* Address where block rewards go, and miner payments come from. */
-    "poolAddress": "4AsBy39rpUMTmgTUARGq2bFQWhDhdQNekK5v4uaLU699NPAnx9CubEJ82AkvD5ScoAZNYRwBxybayainhyThHAZWCdKmPYn"
+    "poolAddress": "WALLETADDRESSHERE"
 
     /* Poll RPC daemons for new blocks every this many milliseconds. */
     "blockRefreshInterval": 1000,
@@ -232,11 +229,11 @@ Explanation for each field:
 "payments": {
     "enabled": true,
     "interval": 600, //how often to run in seconds
-    "maxAddresses": 50, //split up payments if sending to more than this many addresses
-    "mixin": 3, //number of transactions yours is indistinguishable from
-    "transferFee": 5000000000, //fee to pay for each transaction
-    "minPayment": 100000000000, //miner balance required before sending payment
-    "denomination": 100000000000 //truncate to this precision and store remainder
+    "maxAddresses": 10, //split up payments if sending to more than this many addresses
+    "mixin": 0, //number of transactions yours is indistinguishable from
+    "transferFee": 1, //fee to pay for each transaction
+    "minPayment": 10000, //miner balance required before sending payment
+    "denomination": 100 //truncate to this precision and store remainder
 },
 
 /* Module that monitors the submitted block maturities and manages rounds. Confirmed
@@ -248,7 +245,7 @@ Explanation for each field:
 
     /* Block depth required for a block to unlocked/mature. Found in daemon source as
        the variable CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW */
-    "depth": 60,
+    "depth": 20,
     "poolFee": 1.8, //1.8% pool fee (2% total fee total including donations)
     "devDonation": 0.1, //0.1% donation to send to pool dev - only works with Monero
     "coreDevDonation": 0.1 //0.1% donation to send to core devs - only works with Monero
