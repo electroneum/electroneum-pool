@@ -1,7 +1,7 @@
 node-cryptonote-pool
 ====================
 
-High performance Node.js (with native C addons) mining pool for CryptoNote based coins such as Bytecoin, Monero, QuazarCoin, HoneyPenny, etc..
+High performance Node.js (with native C addons) mining pool for CryptoNote based coins such as Electroneum, Monero, Bytecoin, QuazarCoin, HoneyPenny, etc..
 Comes with lightweight example front-end script which uses the pool's AJAX API.
 
 
@@ -59,12 +59,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 
 * [CryptoNote Forum](https://forum.cryptonote.org/)
 * [Bytecoin Github](https://github.com/amjuarez/bytecoin)
-* [Monero Github](https://github.com/monero-project/bitmonero)
-* [Monero Announcement Thread](https://bitcointalk.org/index.php?topic=583449.0)
-* IRC (freenode)
-  * Support / general discussion join #monero: https://webchat.freenode.net/?channels=#monero
-  * Development discussion join #monero-dev: https://webchat.freenode.net/?channels=#monero-dev
-
+* [Electroneum Github](https://github.com/electroneum/electroneum)
 
 #### Pools Using This Software
 
@@ -108,10 +103,10 @@ npm update
 #### 2) Configuration
 
 
-*Warning for Cyrptonote coins other than Monero:* this software may or may not work with any given cryptonote coin.
+*Warning for Cyrptonote coins other than Electroneum:* this software may or may not work with any given cryptonote coin.
 Be wary of altcoins that change the number of minimum coin units because you will have to reconfigure several config
 values to account for those changes. Unless you're offering a bounty reward - do not open an issue asking for help
-getting a coin other than Monero working with this software.
+getting a coin other than electroneum working with this software.
 
 
 Copy the `config_example.json` file to `config.json` then overview each options and change any to match your preferred setup.
@@ -247,8 +242,8 @@ Explanation for each field:
        the variable CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW */
     "depth": 20,
     "poolFee": 1.8, //1.8% pool fee (2% total fee total including donations)
-    "devDonation": 0.1, //0.1% donation to send to pool dev - only works with Monero
-    "coreDevDonation": 0.1 //0.1% donation to send to core devs - only works with Monero
+    "devDonation": 0.1, //0.1% donation to send to pool dev
+    "coreDevDonation": 0.1 //0.1% donation to send to core devs
 },
 
 /* AJAX API used for front-end website. */
@@ -344,7 +339,7 @@ var coinUnits = 1000000000000;
 var poolHost = "cryppit.com";
 
 /* IRC Server and room used for embedded KiwiIRC chat. */
-var irc = "irc.freenode.net/#monero";
+var irc = "irc.freenode.net/#electroneum";
 
 /* Contact email address. */
 var email = "support@cryppit.com";
@@ -357,10 +352,10 @@ var easyminerDownload = "https://github.com/zone117x/cryptonote-easy-miner/relea
 
 /* Used for front-end block links. For other coins it can be changed, for example with
    Bytecoin you can use "https://minergate.com/blockchain/bcn/block/". */
-var blockchainExplorer = "http://monerochain.info/block/";
+var blockchainExplorer = "http://blockexplorer.electroneum.com/block/";
 
 /* Used by front-end transaction links. Change for other coins. */
-var transactionExplorer = "http://monerochain.info/tx/";
+var transactionExplorer = "http://blockexplorer.electroneum.com/tx/";
 
 ```
 
@@ -382,33 +377,6 @@ the Node.js modules, and any config files that may have been changed.
 * Remove the dependencies by deleting the `node_modules` directory with `rm -r node_modules`.
 * Run `npm update` to force updating/reinstalling of the dependencies.
 * Compare your `config.json` to the latest example ones in this repo or the ones in the setup instructions where each config field is explained. You may need to modify or add any new changes.
-
-### Setting up Testnet
-
-No cryptonote based coins have a testnet mode (yet) but you can effectively create a testnet with the following steps:
-
-* Open `/src/p2p/net_node.inl` and remove lines with `ADD_HARDCODED_SEED_NODE` to prevent it from connecting to mainnet (Monero example: http://git.io/0a12_Q)
-* Build the coin from source
-* You now need to run two instance of the daemon and connect them to each other (without a connection to another instance the daemon will not accept RPC requests)
-  * Run first instance with `./coind --p2p-bind-port 28080 --allow-local-ip`
-  * Run second instance with `./coind --p2p-bind-port 5011 --rpc-bind-port 5010 --add-peer 0.0.0.0:28080 --allow-local-ip`
-* You should now have a local testnet setup. The ports can be changes as long as the second instance is pointed to the first instance, obviously
-
-*Credit to surfer43 for these instructions*
-
-
-### JSON-RPC Commands from CLI
-
-Documentation for JSON-RPC commands can be found here:
-* Daemon https://wiki.bytecoin.org/wiki/Daemon_JSON_RPC_API
-* Wallet https://wiki.bytecoin.org/wiki/Wallet_JSON_RPC_API
-
-
-Curl can be used to use the JSON-RPC commands from command-line. Here is an example of calling `getblockheaderbyheight` for block 100:
-
-```bash
-curl 127.0.0.1:18081/json_rpc -d '{"method":"getblockheaderbyheight","params":{"height":100}}'
-```
 
 
 ### Monitoring Your Pool
