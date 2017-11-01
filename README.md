@@ -63,7 +63,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 
 #### Pools Using This Software
 
-* https://eupool.electroneum.com
+* https://asiapool.electroneum.com
 * https://eupool.electroneum.com
 * https://uspool.electroneum.com
 
@@ -103,7 +103,7 @@ npm update
 #### 2) Configuration
 
 
-*Warning for Cyrptonote coins other than Electroneum:* this software may or may not work with any given cryptonote coin.
+*Warning for Cryptonote coins other than Electroneum:* this software may or may not work with any given cryptonote coin.
 Be wary of altcoins that change the number of minimum coin units because you will have to reconfigure several config
 values to account for those changes. Unless you're offering a bounty reward - do not open an issue asking for help
 getting a coin other than electroneum working with this software.
