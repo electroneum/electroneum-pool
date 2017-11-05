@@ -10,9 +10,6 @@
 		font-family: 'Inconsolata', monospace;
 		font-size: 0.8em;
 	}
-	#poolDonations{
-		font-size: 0.75em;
-	}
 	#miningProfitCalc{
 		margin: 35px 0;
 	}
@@ -138,7 +135,6 @@
 		<div><i class="fa fa-tachometer"></i> Hash Rate: <span id="poolHashrate"></span></div>
 		<div><i class="fa fa-clock-o"></i> Block Found: <span id="poolLastBlockFound"></span></div>
 		<div><i class="fa fa-users"></i> Connected Miners: <span id="poolMiners"></span></div>
-		<div><i class="fa fa-gift"></i> Donations: <span id="poolDonations"></span></div>
 		<div><i class="fa fa-money"></i> Total Pool Fee: <span id="poolFee"></span></div>
 		<div><i class="fa fa-history"></i> Block Found Every: <span id="blockSolvedTime"></span> (est.)</div>
 	</div>
@@ -263,13 +259,6 @@
 			if (lastStats.config.doDonations){
 				totalFee += lastStats.config.donation;
 				totalFee += lastStats.config.coreDonation;
-				var feeText = [];
-				if (lastStats.config.donation > 0) feeText.push(lastStats.config.donation + '% to pool dev');
-				if (lastStats.config.coreDonation > 0) feeText.push(lastStats.config.coreDonation + '% to core devs');
-				updateText('poolDonations', feeText.join(', '));
-			}
-			else{
-				updateText('poolDonations', '');
 			}
 
 			updateText('poolFee', totalFee + '%');
