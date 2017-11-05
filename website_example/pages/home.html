@@ -152,29 +152,6 @@
 
 <hr>
 
-<!--<div id="miningProfitCalc">
-	<h3>Estimate Mining Profits</h3>
-	<div id="calcHashHolder">
-		<div class="input-group">
-			<input type="number" class="form-control" id="calcHashRate" placeholder="Enter Your Hash Rate">
-			<div class="input-group-btn">
-				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="calcHashDropdown">
-					<span id="calcHashUnit" data-mul="1">KH/s</span> <span class="caret"></span>
-				</button>
-				<ul class="dropdown-menu dropdown-menu-right" role="menu" id="calcHashUnits">
-					<li><a href="#" data-mul="0">H/s</a></li>
-					<li><a href="#" data-mul="1">KH/s</a></li>
-					<li><a href="#" data-mul="2">MH/s</a></li>
-				</ul>
-			</div>
-			<span class="input-group-addon">=</span>
-			<span class="input-group-addon" id="calcHashResultsHolder"><span id="calcHashAmount"></span> <span id="calcHashSymbol"></span>/day</span>
-		</div>
-	</div>
-</div>
-
-<hr>-->
-
 <div class="row">
 	<h1 class="mb-20">Your Stats & Payment History</h1>
 	<div class="stats">
@@ -265,9 +242,6 @@
 
 
 			updateText('blockSolvedTime', getReadableTime(lastStats.network.difficulty / lastStats.pool.hashrate));
-			// updateText('calcHashSymbol', lastStats.config.symbol);
-
-			// calcEstimateProfit();
 		}
 	};
 
@@ -303,35 +277,6 @@
 		}
 		return hashrate.toFixed(2) + byteUnits[i];
 	}
-
-
-	/* Hash Profitability Calculator */
-
-	/*$('#calcHashRate').keyup(calcEstimateProfit).change(calcEstimateProfit);
-
-	$('#calcHashUnits > li > a').click(function(e){
-		e.preventDefault();
-		$('#calcHashUnit').text($(this).text()).data('mul', $(this).data('mul'));
-		calcEstimateProfit();
-	});
-
-	function calcEstimateProfit(){
-		try {
-			var rateUnit = Math.pow(1000,parseInt($('#calcHashUnit').data('mul')));
-			var inp2 = parseFloat($('#calcHashRate').val()) * rateUnit;
-			var resl = ( lastStats.network.reward / coinUnits) / ((lastStats.network.difficulty / inp2) / 86400  );
-			if (!isNaN(resl)) {
-				updateText('calcHashAmount', (Math.round(resl * 100) / 100).toString());
-				return;
-			}
-		}
-		catch(e){ }
-		updateText('calcHashAmount', '');
-	}*/
-
-
-
-
 
 	/* Stats by mining address lookup */
 
