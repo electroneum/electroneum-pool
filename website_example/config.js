@@ -1,4 +1,4 @@
-var api = "http://electroneum-pool.me:8117";
+var api = "http://electroneum-pool.me";
 
 var coinUnits = 100;
 var coinDecimalPlaces = 2;
