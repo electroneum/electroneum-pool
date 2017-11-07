@@ -1,4 +1,4 @@
-var api = "https://electroneum-pool.me:8117";
+var api = "https://electroneum-pool.me/api/stats";
 
 var coinUnits = 100;
 var coinDecimalPlaces = 2;
