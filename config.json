@@ -69,14 +69,14 @@
         "maxAddresses": 10,
         "mixin": 0,
         "transferFee": 1,
-        "minPayment": 10000,
+        "minPayment": 50000,
         "denomination": 100
     },
     "blockUnlocker": {
         "enabled": true,
         "interval": 30,
         "depth": 20,
-        "poolFee": 1.8,
+        "poolFee": 2.0,
         "devDonation": 0.1,
         "coreDevDonation": 0.1
     },
