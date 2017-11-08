@@ -69,7 +69,7 @@
         "maxAddresses": 10,
         "mixin": 0,
         "transferFee": 1,
-        "minPayment": 10000,
+        "minPayment": 1500,
         "denomination": 100
     },
     "blockUnlocker": {
