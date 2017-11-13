@@ -1,9 +1,8 @@
-node-cryptonote-pool
+Electroneum Pool (node-cryptonote-pool)
 ====================
 
 High performance Node.js (with native C addons) mining pool for CryptoNote based coins such as Electroneum, Monero, Bytecoin, QuazarCoin, HoneyPenny, etc..
 Comes with lightweight example front-end script which uses the pool's AJAX API.
-
 
 
 #### Table of Contents
@@ -58,6 +57,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * [Electroneum Forum](https://electroneumtalk.proboards.com/)
 * [Electroneum Github](https://github.com/electroneum)
 
+
 #### Pools Using This Software
 
 * https://asiapool.electroneum.com
@@ -69,6 +69,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * http://etnhash.com
 * https://easyhash.io/pools/etn
 * https://etn.uax.io/
+
 
 Usage
 ===
@@ -105,6 +106,7 @@ cd pool
 npm update
 ```
 
+
 #### 2) Daemon & Wallet
 
 Firstly, You'll need to download & compile the daemon source code found [here](https://www.github.com/electroneum/electroneum)
@@ -117,7 +119,6 @@ Lastly you need to start the wallet RPC server which makes the payments to your 
 
 
 #### 3) Configuration
-
 
 *Warning for Cryptonote coins other than Electroneum:* this software may or may not work with any given cryptonote coin.
 Be wary of altcoins that change the number of minimum coin units because you will have to reconfigure several config
@@ -250,6 +251,7 @@ pool_port=5555
 Rezip and upload to your server or a file host. Then change the `easyminerDownload` link in your `config.json` file to
 point to your zip file.
 
+
 #### 5) Start the pool
 
 ```bash
@@ -318,6 +320,7 @@ var transactionExplorer = "https://blockexplorer.electroneum.com/tx";
 
 ```
 
+
 #### 7) Customize your website
 
 The following files are included so that you can customize your pool website without having to make significant changes
@@ -327,6 +330,7 @@ to `index.html` or other front-end files thus reducing the difficulty of merging
 
 
 Then simply serve the files via nginx, Apache, Google Drive, or anything that can host static content.
+
 
 #### SSL
 
@@ -349,6 +353,7 @@ By adding this you will need to make your `api` variable in the `website_example
 
 You no longer need to include the port in the variable because of the proxy connection.
 
+
 #### Upgrading
 When updating to the latest code its important to not only `git pull` the latest from this repo, but to also update
 the Node.js modules, and any config files that may have been changed.
@@ -362,6 +367,7 @@ Donations
 * ETN: `etnkCFXeExRaBhbDNq66TQ3rF9XSkMreei8t1jXfT2ndgY6bnsNEUtEKbEhba3YHk2CuPCpxZFrGNcAJ9Lv22ACY7eapPgQtNb`
 * XMR: `48rB9X6ygZQ4uNBSKJP3MKU9iFK87e8vejEi762eNdTPB61A9VayUnL75HHi2SER3gf5i9PXpiS2kiCwDyanvNm5S5Aq3WF`
 
+
 Credits
 ===
 
@@ -370,6 +376,7 @@ Credits
 * [wallet42](http://moneropool.com) - Funded development of payment denominating and min threshold feature
 * [Wolf0](https://bitcointalk.org/index.php?action=profile;u=80740) - Helped try to deobfuscate some of the daemon code for getting a bug fixed
 * [Tacotime](https://bitcointalk.org/index.php?action=profile;u=19270) - helping with figuring out certain problems and lead the bounty for this project's creation
+
 
 License
 -------
