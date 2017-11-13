@@ -69,6 +69,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * http://etnhash.com
 * https://easyhash.io/pools/etn
 * https://etn.uax.io/
+* http://etn.baliwae.com
 
 
 Usage
