@@ -306,7 +306,7 @@ var easyminerDownload = "https://github.com/zone117x/cryptonote-easy-miner/relea
 var blockchainExplorer = "https://blockexplorer.electroneum.com/block/";
 
 /* Used by front-end transaction links. */
-var transactionExplorer = "https://blockexplorer.electroneum.com/tx;
+var transactionExplorer = "https://blockexplorer.electroneum.com/tx";
 
 ```
 
@@ -320,6 +320,26 @@ to `index.html` or other front-end files thus reducing the difficulty of merging
 
 Then simply serve the files via nginx, Apache, Google Drive, or anything that can host static content.
 
+#### SSL
+
+You can configure the API to be accessible via SSL using various methods. Find an example for nginx below:
+
+* Inside your SSL Listener add the following:
+
+``` javascript
+location /json_rpc {
+    proxy_pass http://127.0.0.1:26968/json_rpc;
+}
+
+location ~ ^/api/(.*) {
+    proxy_pass http://127.0.0.1:8117/$1$is_args$args;
+}
+```
+
+By adding this you will need to make your `api` variable in the `website_example/config.js` include the /api. For example:  
+`var api = "http://poolhost/api";`
+
+You no longer need to include the port in the variable because of the proxy connection.
 
 #### Upgrading
 When updating to the latest code its important to not only `git pull` the latest from this repo, but to also update
