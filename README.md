@@ -77,7 +77,9 @@ Usage
 ===
 
 #### Requirements
-* Coin daemon(s) (find the coin's repo and build latest version from source)
+* Coin daemon (electroneum repo)[https://www.github.com/electroneum/electroneum]
+  * To compile the coin you'll need several packages as detailed in the repo's readme. A quick one line command is below:
+  * `sudo apt install build-essential cmake pkg-config libboost-all-dev libssl-dev libunbound-dev`
 * [Node.js](http://nodejs.org/) v0.10.48 ([follow these installation instructions](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager))
 * [Redis](http://redis.io/) key-value store v2.6+ ([follow these instructions](http://redis.io/topics/quickstart))
 * libssl required for the node-multi-hashing module
