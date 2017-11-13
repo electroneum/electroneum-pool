@@ -13,11 +13,11 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * [Usage](#usage)
   * [Requirements](#requirements)
   * [Downloading & Installing](#1-downloading--installing)
-  * [Configuration](#2-configuration)
-  * [Configure Easyminer](#3-optional-configure-cryptonote-easy-miner-for-your-pool)
-  * [Starting the Pool](#4-start-the-pool)
-  * [Host the front-end](#5-host-the-front-end)
-  * [Customizing your website](#6-customize-your-website)
+  * [Configuration](#3-configuration)
+  * [Configure Easyminer](#4-optional-configure-cryptonote-easy-miner-for-your-pool)
+  * [Starting the Pool](#5-start-the-pool)
+  * [Host the front-end](#6-host-the-front-end)
+  * [Customizing your website](#7-customize-your-website)
   * [SSL](#ssl)
   * [Upgrading](#upgrading)
 * [Donations](#donations)
@@ -55,9 +55,8 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 
 ### Community / Support
 
-* [CryptoNote Forum](https://forum.cryptonote.org/)
-* [Bytecoin Github](https://github.com/amjuarez/bytecoin)
-* [Electroneum Github](https://github.com/electroneum/electroneum)
+* [Electroneum Forum](https://electroneumtalk.proboards.com/)
+* [Electroneum Github](https://github.com/electroneum)
 
 #### Pools Using This Software
 
@@ -106,7 +105,18 @@ cd pool
 npm update
 ```
 
-#### 2) Configuration
+#### 2) Daemon & Wallet
+
+Firstly, You'll need to download & compile the daemon source code found [here](https://www.github.com/electroneum/electroneum)
+Secondly, Start a screen session, e.g `screen -S daemon`. Then run `./electroneumd` wherever the compiled binaries are. This will download the blockchain. You'll need to wait until you're fully synced before continuing.
+Thirdly, Once synced you'll need to create a wallet. Detatch from the screen session using `CTRL + A, CTRL + D` (This works for me on putty). Open up another screen session, e.g `screen -S wallet`. Then run `./electroneum-wallet-cli` wherever the compiled binaries are, This will take your through creating a wallet. Once generated, type `exit` to close the wallet.
+Lastly you need to start the wallet RPC server which makes the payments to your miners. This can be started using `./electroneum-wallet-rpc --wallet-file walletfilename --password walletfilepassword --rpc-bind-port 26969 --disable-rpc-login`
+`walletfilename` & `walletfilepassword` are what you supplied when generating the wallet. You can change the port, just remember to change it in the config.json file.
+
+[**Redis security warning**]We strongly recommend that you transfer funds out of this wallet regularly. This way, if your server is comprimised you won't lose all your profits. Bear in mind you'll need to leave enough to pay any outstanding payments to miners.
+
+
+#### 3) Configuration
 
 
 *Warning for Cryptonote coins other than Electroneum:* this software may or may not work with any given cryptonote coin.
@@ -213,11 +223,11 @@ Explanation for each field:
     },
     "daemon": {
         "host": "127.0.0.1",
-        "port": 18081
+        "port": 26968
     },
     "wallet": {
         "host": "127.0.0.1",
-        "port": 8082
+        "port": 26969
     },
     "redis": {
         "host": "127.0.0.1",
@@ -227,7 +237,7 @@ Explanation for each field:
 }
 ```
 
-#### 3) [Optional] Configure cryptonote-easy-miner for your pool
+#### 4) [Optional] Configure cryptonote-easy-miner for your pool
 Your miners that are Windows users can use [cryptonote-easy-miner](https://github.com/zone117x/cryptonote-easy-miner)
 which will automatically generate their wallet address and stratup multiple threads of simpleminer. You can download
 it and edit the `config.ini` file to point to your own pool.
@@ -240,7 +250,7 @@ pool_port=5555
 Rezip and upload to your server or a file host. Then change the `easyminerDownload` link in your `config.json` file to
 point to your zip file.
 
-#### 4) Start the pool
+#### 5) Start the pool
 
 ```bash
 node init.js
@@ -269,7 +279,7 @@ node init.js -module=api
 [Example screenshot](http://i.imgur.com/SEgrI3b.png) of running the pool in single module mode with tmux.
 
 
-#### 5) Host the front-end
+#### 6) Host the front-end
 
 Simply host the contents of the `website_example` directory on file server capable of serving simple static files.
 
@@ -308,7 +318,7 @@ var transactionExplorer = "https://blockexplorer.electroneum.com/tx";
 
 ```
 
-#### 6) Customize your website
+#### 7) Customize your website
 
 The following files are included so that you can customize your pool website without having to make significant changes
 to `index.html` or other front-end files thus reducing the difficulty of merging updates with your own changes:
