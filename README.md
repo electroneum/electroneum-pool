@@ -70,6 +70,8 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * http://electroneum.hashparty.io
 * http://pool.electroneumcharts.com
 * http://etnhash.com
+* https://easyhash.io/pools/etn
+* https://etn.uax.io/
 
 Usage
 ===
