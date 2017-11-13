@@ -284,30 +284,29 @@ Variable explanations:
 /* Must point to the API setup in your config.json file. */
 var api = "http://poolhost:8117";
 
-/* Minimum units in a single coin, for Bytecoin its 100000000. */
-var coinUnits = 1000000000000;
+/* Minimum units in a single coin, for Electroneum its 100. */
+var coinUnits = 100;
 
 /* Pool server host to instruct your miners to point to.  */
-var poolHost = "cryppit.com";
+var poolHost = "poolhost.com";
 
 /* IRC Server and room used for embedded KiwiIRC chat. */
 var irc = "irc.freenode.net/#electroneum";
 
 /* Contact email address. */
-var email = "support@cryppit.com";
+var email = "support@poolhost.com";
 
-/* Market stat display params from https://www.cryptonator.com/widget */
+/* Market stat display params from https://www.cryptonator.com/widget - Not used for Electroneum pool */
 var cryptonatorWidget = ["XMR-BTC", "XMR-USD", "XMR-EUR", "XMR-GBP"];
 
 /* Download link to cryptonote-easy-miner for Windows users. */
 var easyminerDownload = "https://github.com/zone117x/cryptonote-easy-miner/releases/";
 
-/* Used for front-end block links. For other coins it can be changed, for example with
-   Bytecoin you can use "https://minergate.com/blockchain/bcn/block/". */
-var blockchainExplorer = "http://blockexplorer.electroneum.com/block/";
+/* Used for front-end block links. */
+var blockchainExplorer = "https://blockexplorer.electroneum.com/block/";
 
-/* Used by front-end transaction links. Change for other coins. */
-var transactionExplorer = "http://blockexplorer.electroneum.com/tx/";
+/* Used by front-end transaction links. */
+var transactionExplorer = "https://blockexplorer.electroneum.com/tx;
 
 ```
 
@@ -340,8 +339,8 @@ the Node.js modules, and any config files that may have been changed.
 
 Donations
 ---------
-* BTC: `1667jMt7NTZDaC8WXAxtMYBR8DPWCVoU4d`
-* MRO: `48Y4SoUJM5L3YXBEfNQ8bFNsvTNsqcH5Rgq8RF7BwpgvTBj2xr7CmWVanaw7L4U9MnZ4AG7U6Pn1pBhfQhFyFZ1rL1efL8z`
+* ETN: `etnkCFXeExRaBhbDNq66TQ3rF9XSkMreei8t1jXfT2ndgY6bnsNEUtEKbEhba3YHk2CuPCpxZFrGNcAJ9Lv22ACY7eapPgQtNb`
+* XMR: `48rB9X6ygZQ4uNBSKJP3MKU9iFK87e8vejEi762eNdTPB61A9VayUnL75HHi2SER3gf5i9PXpiS2kiCwDyanvNm5S5Aq3WF`
 
 Credits
 ===
