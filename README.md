@@ -18,10 +18,8 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
   * [Starting the Pool](#4-start-the-pool)
   * [Host the front-end](#5-host-the-front-end)
   * [Customizing your website](#6-customize-your-website)
+  * [SSL](#ssl)
   * [Upgrading](#upgrading)
-* [Setting up Testnet](#setting-up-testnet)
-* [JSON-RPC Commands from CLI](#json-rpc-commands-from-cli)
-* [Monitoring Your Pool](#monitoring-your-pool)
 * [Donations](#donations)
 * [Credits](#credits)
 * [License](#license)
@@ -348,14 +346,6 @@ the Node.js modules, and any config files that may have been changed.
 * Remove the dependencies by deleting the `node_modules` directory with `rm -r node_modules`.
 * Run `npm update` to force updating/reinstalling of the dependencies.
 * Compare your `config.json` to the latest example ones in this repo or the ones in the setup instructions where each config field is explained. You may need to modify or add any new changes.
-
-
-### Monitoring Your Pool
-
-* To inspect and make changes to redis I suggest using [redis-commander](https://github.com/joeferner/redis-commander)
-* To monitor server load for CPU, Network, IO, etc - I suggest using [New Relic](http://newrelic.com/)
-* To keep your pool node script running in background, logging to file, and automatically restarting if it crashes - I suggest using [forever](https://github.com/nodejitsu/forever)
-
 
 Donations
 ---------
