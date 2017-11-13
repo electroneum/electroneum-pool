@@ -77,7 +77,7 @@ Usage
 ===
 
 #### Requirements
-* Coin daemon (electroneum repo)[https://www.github.com/electroneum/electroneum]
+* Coin daemon [electroneum repo](https://www.github.com/electroneum/electroneum)
   * To compile the coin you'll need several packages as detailed in the repo's readme. A quick one line command is below:
   * `sudo apt install build-essential cmake pkg-config libboost-all-dev libssl-dev libunbound-dev`
 * [Node.js](http://nodejs.org/) v0.10.48 ([follow these installation instructions](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager))
