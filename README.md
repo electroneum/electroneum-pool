@@ -110,11 +110,11 @@ npm update
 
 #### 2) Daemon & Wallet
 
-Firstly, You'll need to download & compile the daemon source code found [here](https://www.github.com/electroneum/electroneum)
-Secondly, Start a screen session, e.g `screen -S daemon`. Then run `./electroneumd` wherever the compiled binaries are. This will download the blockchain. You'll need to wait until you're fully synced before continuing.
-Thirdly, Once synced you'll need to create a wallet. Detatch from the screen session using `CTRL + A, CTRL + D` (This works for me on putty). Open up another screen session, e.g `screen -S wallet`. Then run `./electroneum-wallet-cli` wherever the compiled binaries are, This will take your through creating a wallet. Once generated, type `exit` to close the wallet.
-Lastly you need to start the wallet RPC server which makes the payments to your miners. This can be started using `./electroneum-wallet-rpc --wallet-file walletfilename --password walletfilepassword --rpc-bind-port 26969 --disable-rpc-login`
-`walletfilename` & `walletfilepassword` are what you supplied when generating the wallet. You can change the port, just remember to change it in the config.json file.
+Firstly, You'll need to download & compile the daemon source code found [here](https://www.github.com/electroneum/electroneum)  
+Secondly, Start a screen session, e.g `screen -S daemon`. Then run `./electroneumd` wherever the compiled binaries are. This will download the blockchain. You'll need to wait until you're fully synced before continuing.  
+Thirdly, Once synced you'll need to create a wallet. Detatch from the screen session using `CTRL + A, CTRL + D` (This works for me on putty). Open up another screen session, e.g `screen -S wallet`. Then run `./electroneum-wallet-cli` wherever the compiled binaries are, This will take your through creating a wallet. Once generated, type `exit` to close the wallet.  
+Lastly you need to start the wallet RPC server which makes the payments to your miners. This can be started using `./electroneum-wallet-rpc --wallet-file walletfilename --password walletfilepassword --rpc-bind-port 26969 --disable-rpc-login`  
+`walletfilename` & `walletfilepassword` are what you supplied when generating the wallet. You can change the port, just remember to change it in the config.json file.  
 
 [**Redis security warning**]We strongly recommend that you transfer funds out of this wallet regularly. This way, if your server is comprimised you won't lose all your profits. Bear in mind you'll need to leave enough to pay any outstanding payments to miners.
 
