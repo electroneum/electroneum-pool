@@ -71,7 +71,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * https://etn.uax.io/
 * http://etn.baliwae.com
 * http://etn.cryptobits.ltd/
-
+* http://www.etnminepool.com/
 
 Usage
 ===
