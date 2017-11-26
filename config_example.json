@@ -1,0 +1,105 @@
+{
+    "coin": "electroneum",
+    "symbol": "ETN",
+    "logging": {
+        "files": {
+            "level": "info",
+            "directory": "logs",
+            "flushInterval": 5
+        },
+
+        "console": {
+            "level": "info",
+            "colors": true
+        }
+    },
+    "poolServer": {
+        "enabled": true,
+        "clusterForks": "auto",
+        "poolAddress": "WALLETADDRESSHERE",
+        "blockRefreshInterval": 1000,
+        "minerTimeout": 900,
+        "ports": [
+            {
+                "port": 3333,
+                "difficulty": 100,
+                "desc": "Low end hardware"
+            },
+            {
+                "port": 5555,
+                "difficulty": 2000,
+                "desc": "Mid range hardware"
+            },
+            {
+                "port": 7777,
+                "difficulty": 10000,
+                "desc": "High end hardware"
+            }
+        ],
+        "varDiff": {
+            "minDiff": 2,
+            "maxDiff": 100000,
+            "targetTime": 100,
+            "retargetTime": 30,
+            "variancePercent": 30,
+            "maxJump": 100
+        },
+        "shareTrust": {
+            "enabled": true,
+            "min": 10,
+            "stepDown": 3,
+            "threshold": 10,
+            "penalty": 30
+        },
+        "banning": {
+            "enabled": true,
+            "time": 600,
+            "invalidPercent": 25,
+            "checkThreshold": 30
+        },
+        "slushMining": {
+            "enabled": false,
+            "weight": 300,
+            "lastBlockCheckRate": 1
+        }
+    },
+    "payments": {
+        "enabled": true,
+        "interval": 600,
+        "maxAddresses": 10,
+        "mixin": 0,
+        "transferFee": 1,
+        "minPayment": 5000,
+        "denomination": 100
+    },
+    "blockUnlocker": {
+        "enabled": true,
+        "interval": 30,
+        "depth": 20,
+        "poolFee": 1.8,
+        "devDonation": 0.1,
+        "coreDevDonation": 0.1
+    },
+    "api": {
+        "enabled": true,
+        "hashrateWindow": 600,
+        "updateInterval": 3,
+        "port": 8117,
+        "blocks": 30,
+        "payments": 30,
+        "password": "your_password"
+    },
+    "daemon": {
+        "host": "127.0.0.1",
+        "port": 18081
+    },
+    "wallet": {
+        "host": "127.0.0.1",
+        "port": 8082
+    },
+    "redis": {
+        "host": "127.0.0.1",
+        "port": 6379,
+        "auth": null
+    }
+}
