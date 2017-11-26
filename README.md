@@ -1,9 +1,8 @@
-node-cryptonote-pool
+Electroneum Pool (node-cryptonote-pool)
 ====================
 
 High performance Node.js (with native C addons) mining pool for CryptoNote based coins such as Electroneum, Monero, Bytecoin, QuazarCoin, HoneyPenny, etc..
 Comes with lightweight example front-end script which uses the pool's AJAX API.
-
 
 
 #### Table of Contents
@@ -13,15 +12,13 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * [Usage](#usage)
   * [Requirements](#requirements)
   * [Downloading & Installing](#1-downloading--installing)
-  * [Configuration](#2-configuration)
-  * [Configure Easyminer](#3-optional-configure-cryptonote-easy-miner-for-your-pool)
-  * [Starting the Pool](#4-start-the-pool)
-  * [Host the front-end](#5-host-the-front-end)
-  * [Customizing your website](#6-customize-your-website)
+  * [Configuration](#3-configuration)
+  * [Configure Easyminer](#4-optional-configure-cryptonote-easy-miner-for-your-pool)
+  * [Starting the Pool](#5-start-the-pool)
+  * [Host the front-end](#6-host-the-front-end)
+  * [Customizing your website](#7-customize-your-website)
+  * [SSL](#ssl)
   * [Upgrading](#upgrading)
-* [Setting up Testnet](#setting-up-testnet)
-* [JSON-RPC Commands from CLI](#json-rpc-commands-from-cli)
-* [Monitoring Your Pool](#monitoring-your-pool)
 * [Donations](#donations)
 * [Credits](#credits)
 * [License](#license)
@@ -57,21 +54,35 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 
 ### Community / Support
 
-* [CryptoNote Forum](https://forum.cryptonote.org/)
-* [Bytecoin Github](https://github.com/amjuarez/bytecoin)
-* [Electroneum Github](https://github.com/electroneum/electroneum)
+* [Electroneum Forum](https://electroneumtalk.proboards.com/)
+* [Electroneum Github](https://github.com/electroneum)
+
 
 #### Pools Using This Software
 
 * https://asiapool.electroneum.com
 * https://eupool.electroneum.com
 * https://uspool.electroneum.com
+* http://ucrypto.com
+* http://electroneum.hashparty.io
+* http://pool.electroneumcharts.com
+* http://etnhash.com
+* https://easyhash.io/pools/etn
+* https://etn.uax.io/
+* http://etn.baliwae.com
+* http://etn.cryptobits.ltd/
+* http://www.etnminepool.com/
+* https://etn.dark-mine.su/
+* https://electroneum-pool.me
+
 
 Usage
 ===
 
 #### Requirements
-* Coin daemon(s) (find the coin's repo and build latest version from source)
+* Coin daemon [electroneum repo](https://www.github.com/electroneum/electroneum)
+  * To compile the coin you'll need several packages as detailed in the repo's readme. A quick one line command is below:
+  * `sudo apt install build-essential cmake pkg-config libboost-all-dev libssl-dev libunbound-dev`
 * [Node.js](http://nodejs.org/) v0.10.48 ([follow these installation instructions](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager))
 * [Redis](http://redis.io/) key-value store v2.6+ ([follow these instructions](http://redis.io/topics/quickstart))
 * libssl required for the node-multi-hashing module
@@ -100,8 +111,23 @@ cd pool
 npm update
 ```
 
-#### 2) Configuration
 
+#### 2) Daemon & Wallet
+
+Firstly, You'll need to download & compile the daemon source code found [here](https://www.github.com/electroneum/electroneum)  
+
+Secondly, Start a screen session, e.g `screen -S daemon`. Then run `./electroneumd` wherever the compiled binaries are. This will download the blockchain. You'll need to wait until you're fully synced before continuing.  
+
+Thirdly, Once synced you'll need to create a wallet. Detatch from the screen session using `CTRL + A, CTRL + D` (This works for me on putty). Open up another screen session, e.g `screen -S wallet`. Then run `./electroneum-wallet-cli` wherever the compiled binaries are, This will take your through creating a wallet. Once generated, type `exit` to close the wallet.  
+
+Lastly you need to start the wallet RPC server which makes the payments to your miners. This can be started using `./electroneum-wallet-rpc --wallet-file walletfilename --password walletfilepassword --rpc-bind-port 26969 --disable-rpc-login`  
+
+`walletfilename` & `walletfilepassword` are what you supplied when generating the wallet. You can change the port, just remember to change it in the config.json file.  
+
+[**Security Warning**]We strongly recommend that you transfer funds out of this wallet regularly. This way, if your server is comprimised you won't lose all your profits. Bear in mind you'll need to leave enough to pay any outstanding payments to miners.
+
+
+#### 3) Configuration
 
 *Warning for Cryptonote coins other than Electroneum:* this software may or may not work with any given cryptonote coin.
 Be wary of altcoins that change the number of minimum coin units because you will have to reconfigure several config
@@ -207,11 +233,11 @@ Explanation for each field:
     },
     "daemon": {
         "host": "127.0.0.1",
-        "port": 18081
+        "port": 26968
     },
     "wallet": {
         "host": "127.0.0.1",
-        "port": 8082
+        "port": 26969
     },
     "redis": {
         "host": "127.0.0.1",
@@ -221,7 +247,7 @@ Explanation for each field:
 }
 ```
 
-#### 3) [Optional] Configure cryptonote-easy-miner for your pool
+#### 4) [Optional] Configure cryptonote-easy-miner for your pool
 Your miners that are Windows users can use [cryptonote-easy-miner](https://github.com/zone117x/cryptonote-easy-miner)
 which will automatically generate their wallet address and stratup multiple threads of simpleminer. You can download
 it and edit the `config.ini` file to point to your own pool.
@@ -234,7 +260,8 @@ pool_port=5555
 Rezip and upload to your server or a file host. Then change the `easyminerDownload` link in your `config.json` file to
 point to your zip file.
 
-#### 4) Start the pool
+
+#### 5) Start the pool
 
 ```bash
 node init.js
@@ -263,7 +290,7 @@ node init.js -module=api
 [Example screenshot](http://i.imgur.com/SEgrI3b.png) of running the pool in single module mode with tmux.
 
 
-#### 5) Host the front-end
+#### 6) Host the front-end
 
 Simply host the contents of the `website_example` directory on file server capable of serving simple static files.
 
@@ -276,34 +303,34 @@ Variable explanations:
 /* Must point to the API setup in your config.json file. */
 var api = "http://poolhost:8117";
 
-/* Minimum units in a single coin, for Bytecoin its 100000000. */
-var coinUnits = 1000000000000;
+/* Minimum units in a single coin, for Electroneum its 100. */
+var coinUnits = 100;
 
 /* Pool server host to instruct your miners to point to.  */
-var poolHost = "cryppit.com";
+var poolHost = "poolhost.com";
 
 /* IRC Server and room used for embedded KiwiIRC chat. */
 var irc = "irc.freenode.net/#electroneum";
 
 /* Contact email address. */
-var email = "support@cryppit.com";
+var email = "support@poolhost.com";
 
-/* Market stat display params from https://www.cryptonator.com/widget */
+/* Market stat display params from https://www.cryptonator.com/widget - Not used for Electroneum pool */
 var cryptonatorWidget = ["XMR-BTC", "XMR-USD", "XMR-EUR", "XMR-GBP"];
 
 /* Download link to cryptonote-easy-miner for Windows users. */
 var easyminerDownload = "https://github.com/zone117x/cryptonote-easy-miner/releases/";
 
-/* Used for front-end block links. For other coins it can be changed, for example with
-   Bytecoin you can use "https://minergate.com/blockchain/bcn/block/". */
-var blockchainExplorer = "http://blockexplorer.electroneum.com/block/";
+/* Used for front-end block links. */
+var blockchainExplorer = "https://blockexplorer.electroneum.com/block/";
 
-/* Used by front-end transaction links. Change for other coins. */
-var transactionExplorer = "http://blockexplorer.electroneum.com/tx/";
+/* Used by front-end transaction links. */
+var transactionExplorer = "https://blockexplorer.electroneum.com/tx";
 
 ```
 
-#### 6) Customize your website
+
+#### 7) Customize your website
 
 The following files are included so that you can customize your pool website without having to make significant changes
 to `index.html` or other front-end files thus reducing the difficulty of merging updates with your own changes:
@@ -314,6 +341,28 @@ to `index.html` or other front-end files thus reducing the difficulty of merging
 Then simply serve the files via nginx, Apache, Google Drive, or anything that can host static content.
 
 
+#### SSL
+
+You can configure the API to be accessible via SSL using various methods. Find an example for nginx below:
+
+* Inside your SSL Listener add the following:
+
+``` javascript
+location /json_rpc {
+    proxy_pass http://127.0.0.1:26968/json_rpc;
+}
+
+location ~ ^/api/(.*) {
+    proxy_pass http://127.0.0.1:8117/$1$is_args$args;
+}
+```
+
+By adding this you will need to make your `api` variable in the `website_example/config.js` include the /api. For example:  
+`var api = "http://poolhost/api";`
+
+You no longer need to include the port in the variable because of the proxy connection.
+
+
 #### Upgrading
 When updating to the latest code its important to not only `git pull` the latest from this repo, but to also update
 the Node.js modules, and any config files that may have been changed.
@@ -322,18 +371,11 @@ the Node.js modules, and any config files that may have been changed.
 * Run `npm update` to force updating/reinstalling of the dependencies.
 * Compare your `config.json` to the latest example ones in this repo or the ones in the setup instructions where each config field is explained. You may need to modify or add any new changes.
 
-
-### Monitoring Your Pool
-
-* To inspect and make changes to redis I suggest using [redis-commander](https://github.com/joeferner/redis-commander)
-* To monitor server load for CPU, Network, IO, etc - I suggest using [New Relic](http://newrelic.com/)
-* To keep your pool node script running in background, logging to file, and automatically restarting if it crashes - I suggest using [forever](https://github.com/nodejitsu/forever)
-
-
 Donations
 ---------
-* BTC: `1667jMt7NTZDaC8WXAxtMYBR8DPWCVoU4d`
-* MRO: `48Y4SoUJM5L3YXBEfNQ8bFNsvTNsqcH5Rgq8RF7BwpgvTBj2xr7CmWVanaw7L4U9MnZ4AG7U6Pn1pBhfQhFyFZ1rL1efL8z`
+* ETN: `etnkCFXeExRaBhbDNq66TQ3rF9XSkMreei8t1jXfT2ndgY6bnsNEUtEKbEhba3YHk2CuPCpxZFrGNcAJ9Lv22ACY7eapPgQtNb`
+* XMR: `48rB9X6ygZQ4uNBSKJP3MKU9iFK87e8vejEi762eNdTPB61A9VayUnL75HHi2SER3gf5i9PXpiS2kiCwDyanvNm5S5Aq3WF`
+
 
 Credits
 ===
@@ -343,6 +385,7 @@ Credits
 * [wallet42](http://moneropool.com) - Funded development of payment denominating and min threshold feature
 * [Wolf0](https://bitcointalk.org/index.php?action=profile;u=80740) - Helped try to deobfuscate some of the daemon code for getting a bug fixed
 * [Tacotime](https://bitcointalk.org/index.php?action=profile;u=19270) - helping with figuring out certain problems and lead the bounty for this project's creation
+
 
 License
 -------
