@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - "0.10.48"
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - libssl-dev
+      - libboost-all-dev
+      - build-essential
+      - cmake
+      - pkg-config
+      - libunbound-dev
