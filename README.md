@@ -91,7 +91,7 @@ Usage
   * For Ubuntu: `sudo apt-get install libboost-all-dev`
 * Screen - for running the different parts of the pool in the background. This may come pre-installed on some systems.
   * For Ubuntu: `sudo apt-get install screen`
-  * Usage:
+  * Usage:  
     `screen -S daemond` <--- Use to run the daemond  
     `screen -S rpc` <---- Use to run rpc  
     `screen -S website` < --- use to run website  
