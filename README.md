@@ -83,7 +83,7 @@ Usage
 * Coin daemon [electroneum repo](https://www.github.com/electroneum/electroneum)
   * To compile the coin you'll need several packages as detailed in the repo's readme. A quick one line command is below:
   * `sudo apt install build-essential cmake pkg-config libboost-all-dev libssl-dev libunbound-dev`
-* [Node.js](http://nodejs.org/) v0.10.48 ([follow these installation instructions](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager))
+* [NVM](https://github.com/creationix/nvm) to install v0.10.48. Follow the instructions for installing nvm (Node Version Manager). Then type `nvm install 0.10.48`. Once finished, type `nvm use 0.10.48`.
 * [Redis](http://redis.io/) key-value store v2.6+ ([follow these instructions](http://redis.io/topics/quickstart))
 * libssl required for the node-multi-hashing module
   * For Ubuntu: `sudo apt-get install libssl-dev`
