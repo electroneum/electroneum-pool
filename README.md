@@ -90,9 +90,11 @@ Usage
 * Boost is required for the cryptonote-util module
   * For Ubuntu: `sudo apt-get install libboost-all-dev`
 
+##### Node.js v0.10.48
+* This version of node.js is required to run the cryptonight-util and node-multi-hashing modules. These modules were created by other users and currently only work with Node.js 0.10.48. Please ensure that you have this version of node.js installed before opening an issue asking for help.
 
 ##### Seriously
-Those are legitimate requirements. If you use old versions of Node.js or Redis that may come with your system package manager then you will have problems. Follow the linked instructions to get the last stable versions.
+Those are legitimate requirements. If you use a different version of Node.js or Redis that may come with your system package manager then you will have problems. Follow the linked instructions to get the last stable versions.
 
 
 [**Redis security warning**](http://redis.io/topics/security): be sure firewall access to redis - an easy way is to
