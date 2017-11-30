@@ -80,6 +80,7 @@ Usage
 ===
 
 #### Requirements
+* A non root user. To intall & run the pool, you should do so as a user that is NOT root. Running as root will cause issues.
 * Coin daemon [electroneum repo](https://www.github.com/electroneum/electroneum)
   * To compile the coin you'll need several packages as detailed in the repo's readme. A quick one line command is below:
   * `sudo apt install build-essential cmake pkg-config libboost-all-dev libssl-dev libunbound-dev`
