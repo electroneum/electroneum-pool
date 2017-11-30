@@ -92,12 +92,12 @@ Usage
 * Screen - for running the different parts of the pool in the background. This may come pre-installed on some systems.
   * For Ubuntu: `sudo apt-get install screen`
   * Usage:
-    `screen -S daemond` <--- Use to run the daemond
-    `screen -S rpc` <---- Use to run rpc
-    `screen -S website` < --- use to run website
-    `screen -list` <---- List screens
-    `screen -x website` <--- reconnect to screen website
-    `CTRL + a` then `CTRL + d` <----- detatch from a screen
+    `screen -S daemond` <--- Use to run the daemond  
+    `screen -S rpc` <---- Use to run rpc  
+    `screen -S website` < --- use to run website  
+    `screen -list` <---- List screens  
+    `screen -x website` <--- reconnect to screen website  
+    `CTRL + a` then `CTRL + d` <----- detatch from a screen  
 
 ##### Node.js v0.10.48
 * This version of node.js is required to run the cryptonight-util and node-multi-hashing modules. These modules were created by other users and currently only work with Node.js 0.10.48. Please ensure that you have this version of node.js installed before opening an issue asking for help.
