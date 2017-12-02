@@ -76,6 +76,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * https://electroneum-pool.me/
 * http://etnpool.club/
 * http://pool.hashusa.win/
+* https://etn.dedpool.io
 
 Usage
 ===
