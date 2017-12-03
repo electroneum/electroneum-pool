@@ -79,7 +79,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * https://etn.mymininghub.com/
 Usage
 ===
-* https://dedpool.io
+* https://etn.dedpool.io
 
 #### Requirements
 * A non root user. To intall & run the pool, you should do so as a user that is NOT root. Running as root will cause issues.
