@@ -78,11 +78,10 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * http://pool.hashusa.win/
 * https://etn.mymininghub.com/
 * http://etnpool.nl
+* https://etn.dedpool.io
 
 Usage
 ===
-* https://etn.dedpool.io
-
 #### Requirements
 * A non root user. To intall & run the pool, you should do so as a user that is NOT root. Running as root will cause issues.
 * Coin daemon [electroneum repo](https://www.github.com/electroneum/electroneum)
