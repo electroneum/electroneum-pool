@@ -80,6 +80,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * http://etnpool.nl
 * https://etn.dedpool.io
 * http://etn.lucky-mining.com.ua/ <- Ukraine/Kiev
+http://www.west-pool.org/etn  <- Portugal/EU
 
 Usage
 ===
