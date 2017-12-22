@@ -64,23 +64,17 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * https://eupool.electroneum.com
 * https://uspool.electroneum.com
 * http://ucrypto.com
-* http://electroneum.hashparty.io
 * http://pool.electroneumcharts.com
-* http://etnhash.com
 * https://easyhash.io/pools/etn
 * https://etn.uax.io/
-* http://etn.baliwae.com
 * http://etn.cryptobits.ltd/
-* http://www.etnminepool.com/
 * https://etn.dark-mine.su/
-* https://electroneum-pool.me/
 * http://etnpool.club/
 * http://pool.hashusa.win/
 * https://etn.mymininghub.com/
 * http://etnpool.nl
 * https://dedpool.io/etn <- US Pool
 * https://dedpool.io/etn/eu <- EU Pool
-* http://etn.lucky-mining.com.ua/ <- Ukraine/Kiev
 * https://etn.xeminer.net <-- Asian
 
 Usage
