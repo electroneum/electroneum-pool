@@ -78,7 +78,8 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * http://pool.hashusa.win/
 * https://etn.mymininghub.com/
 * http://etnpool.nl
-* https://etn.dedpool.io
+* https://dedpool.io/etn <- US Pool
+* https://dedpool.io/etn/eu <- EU Pool
 * http://etn.lucky-mining.com.ua/ <- Ukraine/Kiev
 * https://etn.xeminer.net <-- Asian
 
