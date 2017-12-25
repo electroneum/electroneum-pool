@@ -76,6 +76,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * https://dedpool.io/etn <- US Pool
 * https://dedpool.io/etn/eu <- EU Pool
 * https://etn.xeminer.net <-- Asian
+* http://electroneum.dedpewl.com
 
 Usage
 ===
