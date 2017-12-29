@@ -60,7 +60,6 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 
 #### Pools Using This Software
 
-* http://etn.pool.nocroom.com < - cloud based, US Pool Server
 * https://asiapool.electroneum.com
 * https://eupool.electroneum.com
 * https://uspool.electroneum.com
@@ -79,6 +78,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * https://dedpool.io/etn/eu <- EU Pool
 * https://etn.xeminer.net <-- Asian
 * http://electroneum.dedpewl.com
+* http://etn.pool.nocroom.com < - cloud based, US Pool Server
 
 Usage
 ===
