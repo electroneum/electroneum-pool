@@ -79,6 +79,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * https://etn.xeminer.net <-- Asian
 * http://electroneum.dedpewl.com
 * http://etn.pool.nocroom.com < - cloud based, US Pool Server
+* http://etn.bl0ck.party <- Atlanta, GA, USA -- 0.5% fee
 
 Usage
 ===
