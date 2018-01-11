@@ -80,6 +80,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * http://electroneum.dedpewl.com
 * http://etn.pool.nocroom.com < - cloud based, US Pool Server
 * http://etn.bl0ck.party <- Atlanta, GA, USA -- 0.5% fee
+* http://etnpool.com.mx < - cloud based, Mexico Pool Server, 0.2% fee
 
 Usage
 ===
