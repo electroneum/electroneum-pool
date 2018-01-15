@@ -60,9 +60,6 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 
 #### Pools Using This Software
 
-* https://asiapool.electroneum.com
-* https://eupool.electroneum.com
-* https://uspool.electroneum.com
 * http://etn.proxpool.com <- cloud based, high efficiency, EU Pool Server, 0% fee
 * http://ucrypto.com
 * http://pool.electroneumcharts.com
