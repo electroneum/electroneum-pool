@@ -83,6 +83,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * http://etn.bl0ck.party <- Atlanta, GA, USA -- 0.5% fee
 * https://www.etn.rustylock.club - cloud based, high efficiency, EU Pool Server
 * https://supportetn.eu - nodejs-pool, EU Pool Server, 0.2 % fee
+* https://etn.zeropools.org <- EU Pool, 0.1% Fee, 10 ETN Payout, reliable and fast dedicated server
 
 Usage
 ===
