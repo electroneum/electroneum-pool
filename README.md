@@ -60,6 +60,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 
 #### Pools Using This Software
 
+* https://etnpool.net/ <- 0 to 1% fee - European Pool - Multi Nodes - 1ETN minimum payouts
 * https://easyhash.io/pools/etn
 * http://electroneum.mining-pool.info <- cloud based, French pool server
 * http://etn.proxpool.com <- cloud based, high efficiency, EU Pool Server, 0% fee
