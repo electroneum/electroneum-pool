@@ -84,6 +84,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * https://www.etn.rustylock.club - cloud based, high efficiency, EU Pool Server
 * https://supportetn.eu - nodejs-pool, EU Pool Server, 0.2 % fee
 * http://www.etnhodl.com  <~ cloud based, US Server .1% fee
+* https://etn.semipool.com <-- multi-devs' regularly updated code, geoDNS, 0.4% fee
 
 Usage
 ===
