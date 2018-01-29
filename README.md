@@ -59,6 +59,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 
 
 #### Pools Using This Software
+* http://etnmine.pro <-- London, Cloud-Based, High Availability Pool 0% Fee
 * http://etn.kkmining.club/ <-- Hongkong Pool 0.1% fee
 * http://etnpool.cc  <-- Asian -- 0.1% fee
 * https://easyhash.io/pools/etn
