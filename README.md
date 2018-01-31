@@ -59,6 +59,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 
 
 #### Pools Using This Software
+* https://etnpeople.com - <--High Capacity Western U.S. Pool, 1.2 % fee
 * http://poolmining.network/etn/ <-- Europe Based Dedicated Pool, Backed By SSD 1.5% Fee
 * http://etnmine.pro <-- London, Cloud-Based, High Availability Pool 0% Fee
 * http://etn.kkmining.club/ <-- Hongkong Pool 0.1% fee
@@ -88,7 +89,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * https://supportetn.eu - nodejs-pool, EU Pool Server, 0.2 % fee
 * http://www.etnhodl.com  <~ cloud based, US Server .1% fee
 * https://miner.lu - nodejs-pool, EU Pool Server located in Luxembourg, 0.3 % fee
-* https://etnpeople.com - <--High Capacity Western U.S. Pool, 1.2 % fee
+
 
 Usage
 ===
