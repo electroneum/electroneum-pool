@@ -1,3 +1,5 @@
+本文还在完善中:
+
 前期环境搭建
 
 使用apt-get update && apt-get upgrade更新系统后，我们就先开始安装Redis. 依次执行下列命令。
@@ -61,3 +63,16 @@ forever start init.js
 mkdir -p /srv/www/your-pool-address.com/public_html
 mkdir /srv/www/your-pool-address.com/logs
 cp -r pool/website_example/* /srv/www/your-pool-address.com/public_html/
+
+这里建议使用 nginx  当你要使用ssl是时候，您可以使用各种方法将API配置为可通过SSL访问。下面nginx的例子：
+
+在您的SSL侦听器中添加以下内容：
+location / json_rpc {
+    proxy_pass http ：// 127.0.0.1:26968/json_rpc;
+}
+
+位置〜 ^ / api /（。*）{
+    proxy_pass http ：// 127.0.0.1:8117/$1$is_args$args; 
+}
+通过添加这个，你将需要使你的api变量website_example/config.js包含/ api。例如：
+var api = "https://poolhost/api";
