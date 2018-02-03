@@ -69,7 +69,7 @@
         "maxAddresses": 10,
         "mixin": 0,
         "transferFee": 1,
-        "minPayment": 5000,
+        "minPayment": 10000,
         "denomination": 100
     },
     "blockUnlocker": {
@@ -91,11 +91,11 @@
     },
     "daemon": {
         "host": "127.0.0.1",
-        "port": 18081
+        "port": 26968
     },
     "wallet": {
         "host": "127.0.0.1",
-        "port": 8082
+        "port": 26969
     },
     "redis": {
         "host": "127.0.0.1",
