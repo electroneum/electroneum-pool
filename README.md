@@ -71,6 +71,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * http://pool.electroneumcharts.com
 * https://easyhash.io/pools/etn
 * http://etn.exohash.com
+* http://trigonmc.com/etn - US Server/Custom Frontend/1% fee/Dedicated Host
 * https://etn.uax.io/
 * http://etn.cryptobits.ltd/
 * https://etn.dark-mine.su/
