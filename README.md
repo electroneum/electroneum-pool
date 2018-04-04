@@ -89,6 +89,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * http://www.etnhodl.com  <~ cloud based, US Server .1% fee
 * https://miner.lu - nodejs-pool, EU Pool Server located in Luxembourg, 0.3 % fee
 * http://etn-pool.pl <- EU Pool
+* https://electroneumpool.co.uk/ <- EU Pool, Cloud based, 0% fee
 
 Usage
 ===
