@@ -59,36 +59,16 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 
 
 #### Pools Using This Software
-* http://poolmining.network/etn/ <-- Europe Based Dedicated Pool, Backed By SSD 1.5% Fee
-* http://etnmine.pro <-- London, Cloud-Based, High Availability Pool 0% Fee
 * http://etn.kkmining.club/ <-- Hongkong Pool 0.1% fee
-* http://etnpool.cc  <-- Asian -- 0.1% fee
-* http://etnpool.cylim.com.my <- Asia (South East Asia), High efficiency, 0% fee (Will increase to 0.5%)
 * https://easyhash.io/pools/etn
-* http://electroneum.mining-pool.info <- cloud based, French pool server
 * http://etn.proxpool.com <- cloud based, high efficiency, EU Pool Server, 0% fee
-* http://ucrypto.com
-* http://pool.electroneumcharts.com
 * https://easyhash.io/pools/etn
-* http://etn.exohash.com
-* https://etn.uax.io/
-* http://etn.cryptobits.ltd/
-* https://etn.dark-mine.su/
-* http://etnpool.club/
-* http://pool.hashusa.win/
 * https://etn.mymininghub.com/
-* http://etnpool.nl
 * https://dedpool.io/etn <- US Pool
-* https://dedpool.io/etn/eu <- EU Pool
-* https://etn.xeminer.net <-- Asian
-* http://electroneum.dedpewl.com
 * http://etn.pool.nocroom.com < - cloud based, US Pool Server
 * http://etn.bl0ck.party <- Atlanta, GA, USA -- 0.5% fee
 * https://www.etn.rustylock.club - cloud based, high efficiency, EU Pool Server
 * https://supportetn.eu - nodejs-pool, EU Pool Server, 0.2 % fee
-* http://www.etnhodl.com  <~ cloud based, US Server .1% fee
-* https://miner.lu - nodejs-pool, EU Pool Server located in Luxembourg, 0.3 % fee
-* http://etn-pool.pl <- EU Pool
 
 Usage
 ===
