@@ -1,0 +1,81 @@
+如何建立一个ETN矿池
+本文还在完善中:
+
+前期环境搭建
+
+使用apt-get update && apt-get upgrade更新系统后，我们就先开始安装Redis. 依次执行下列命令。
+
+
+apt-get install build-essential libtool autotools-dev autoconf pkg-config libssl-dev libboost-all-dev git npm nodejs nodejs-legacy libminiupnpc-dev redis-server
+add-apt-repository ppa:bitcoin/bitcoin
+apt-get update
+apt-get install libdb4.8-dev libdb4.8++-dev
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+source ~/.profile
+nvm install 0.10.48
+nvm use 0.10.48
+ETN后端搭建
+
+现在，我们可以开始编译Electroneum源代码，同步区块链，生成钱包了。依次执行：
+
+
+git clone https://github.com/electroneum/electroneum electroneum
+apt-get install build-essential cmake pkg-config libboost-all-dev libunbound-dev libminiupnpc-dev libunwind8-dev libldns-dev libexpat1-dev libgtest-dev doxygen graphviz
+cd electroneum && cmake . && make
+同步区块链有两种方法，这里我们推荐下载区块链导入，并从导入位置继续同步。若直接从0开始同步，可能需要8-10小时时间。我们进入bin目录，下载区块链文件https://downloads.electroneum.com/blockchain.raw 该区块链更新至85000高度，而当前ETN区块链高度已达到130000左右。
+
+下载好区块链文件后，执行：
+
+
+./electroneum-blockchain-import --verify 0 --input-file ./blockchain.raw
+这样，我们同步好了85000高度的区块链。继续执行：
+
+
+./electroneumd
+把剩下50000多高度的区块链同步完毕。同步完毕后使用exit命令推出ETN Daemon, 然后我们使用screen命令把electroneumd运行在后台。这样，ETN的后台就搭建好了。
+
+回到SSH, 我们需要新建一个钱包用来储存挖到的ETN并进行payout. 在bin目录中执行命令：
+
+./electroneum-wallet-cli
+执行过程中会提示输入钱包名称，这里我们输入qingsu 提示输入密码，我们输入qing.su 然后会给出钱包地址和私钥，请牢记这些信息。生成完毕后我们安装RPC自动接收/支付挖到的ETN. 在新的screen中执行命令：
+
+./electroneum-wallet-rpc --wallet-file qingsu --password qing.su --rpc-bind-port 26969 --disable-rpc-login
+
+此时我们就可以安装矿池了。回到SSH, 从官方源安装矿池：
+
+
+cd ~
+git clone https://github.com/electroneum/electroneum-pool.git pool
+cd pool
+npm update
+cp config_example.json config.json
+编辑文件config.json, 编辑poolAddress, poolFee, devDonation, coreDevDonation这几个参数，保存退出。最后，执行：
+
+
+npm install forever -g
+forever start init.js
+矿池就安装完毕啦！此时，使用你的矿机填上你的矿池地址：your-pool-address:3333/5555/7777, 就可以愉快地开始挖矿啦。
+
+网站前端搭建
+
+后端搭建好了以后，我们可以搭一个前端面板，展示矿池的统计数据，也方便管理。前端文件已经集成在pool/website_example文件夹中。依次执行：
+
+
+mkdir -p /srv/www/your-pool-address.com/public_html
+mkdir /srv/www/your-pool-address.com/logs
+cp -r pool/website_example/* /srv/www/your-pool-address.com/public_html/
+
+这里建议使用 nginx  当你要使用ssl是时候，您可以使用各种方法将API配置为可通过SSL访问。下面nginx的例子：
+
+在您的SSL侦听器中添加以下内容：
+
+location /json_rpc {
+    proxy_pass http://127.0.0.1:26968/json_rpc;
+}
+
+location ~ ^/api/(.*) {
+    proxy_pass http://127.0.0.1:8117/$1$is_args$args;
+}
+
+通过添加这个，你将需要使你的api变量website_example/config.js包含/ api。例如：
+var api = "https://poolhost/api";
